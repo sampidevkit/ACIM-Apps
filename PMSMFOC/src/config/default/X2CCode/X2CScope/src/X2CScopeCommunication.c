@@ -32,7 +32,7 @@
 void sendSerial(uint8_t data)
 {
      bool status;
-     status = UART2_Write(&data,1);
+     status = UART1_Write(&data,1);
      
      if( false == status )
      {
@@ -44,7 +44,7 @@ uint8_t receiveSerial(void)
 {
     uint8_t data;
     bool status = false;
-    status = UART2_Read(&data, 1);
+    status = UART1_Read(&data, 1);
     if(status == true)
     {
       return data;  
@@ -59,7 +59,7 @@ uint8_t isReceiveDataAvailable(void)
 {
     bool status;
     
-    status = UART2_ReceiverIsReady();
+    status = UART1_ReceiverIsReady();
     return (uint8_t)status;
 }
 
@@ -67,6 +67,6 @@ uint8_t isSendReady(void)
 {
     bool status;
     
-    status = UART2_TransmitterIsReady();
+    status = UART1_TransmitterIsReady();
     return (uint8_t)status;
 }

@@ -182,17 +182,3 @@ void mcHalI_PwmCallbackRegister( MCPWM_CH_CALLBACK callback, uintptr_t context )
 
 
 
-/*! \brief Start the encoder peripheral
- *
- * Details.
- * Start the encoder peripheral
- *
- * @param[in]:
- * @param[in/out]:
- * @param[out]:
- * @return:
- */
-void mcHalI_EncoderStart( void  )
-{
-    QEI1_Start();
-}

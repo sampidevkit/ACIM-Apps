@@ -245,10 +245,6 @@ tmcTypes_StdReturn_e mcSupI_OpenLoopStartup( const tmcSup_Parameters_s * const p
             case startupState_Align:
             {
 
-                if( 1u == pState->oneTimeAlignDone )
-                {
-                    return StdReturn_Complete;
-                }
                 ++pState->zCounter;
 
                 if( pState->zCounter <= ( pState->alignmentTimeLoopCount >> 1u ) )
@@ -267,10 +263,7 @@ tmcTypes_StdReturn_e mcSupI_OpenLoopStartup( const tmcSup_Parameters_s * const p
                 }
                 else
                 {
-                    pState->oneTimeAlignDone = 1u;
-                    openLoopStatus = StdReturn_Complete;
-                    /** Start encoder */
-                    mcHalI_EncoderStart();
+                    pState->StartupState = startupState_Ramp;
 
                     /** Reset counter */
                     pState->zCounter = 0u;

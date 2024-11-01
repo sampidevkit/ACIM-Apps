@@ -70,6 +70,7 @@ typedef struct
      float32_t iQref;
      float32_t iDref;
      float32_t nRef;
+     float32_t angleDifference;
      float32_t commandDirection;
      float32_t ratedSpeedInRpm;
 
@@ -80,7 +81,7 @@ typedef struct
      tmcSpe_Parameters_s bSpeedController;
      tmcRef_Parameters_s bReferenceController;
 
-     tmcRpc_Parameters_s bPositionCalculation;
+     tmcRpe_Parameters_s bPositionEstimation;
 
      uint16_t duty[3u];
  }tmcFoc_State_s;
@@ -108,6 +109,7 @@ Macro Functions
 /**
  *  Open loop angle to close loop angle transition rate.
  */
+#define ROTOR_ANGLE_RAMP_RATE     (float32_t)( 1.0e-5 )
 
 /*******************************************************************************
 Private Functions
@@ -209,8 +211,8 @@ void  mcFocI_FieldOrientedControlInit( tmcFocI_ModuleData_s * const pModule )
 
 
 
-    /** Initialize rotor position calculation  */
-    mcRpcI_RotorPositionCalcInit( &mcFoc_State_mds.bPositionCalculation);
+    /** Initialize rotor position estimation  */
+    mcRpeI_RotorPositionEstimInit( &mcFoc_State_mds.bPositionEstimation);
 
     /** Initialize PWM  module */
     mcPwmI_PulseWidthModulationInit( &mcFoc_State_mds.bPwmModulator );
@@ -264,8 +266,8 @@ void  mcFocI_FieldOrientedControlEnable( tmcFocI_ModuleData_s * const pParameter
 
 
 
-    /** Enable rotor position calculation  */
-    mcRpcI_RotorPositionCalcEnable( &mcFoc_State_mds.bPositionCalculation);
+    /** Enable rotor position estimation  */
+    mcRpeI_RotorPositionEstimEnable( &mcFoc_State_mds.bPositionEstimation);
 
     /** Enable PWM  module */
     mcPwmI_PulseWidthModulationEnable( &mcFoc_State_mds.bPwmModulator );
@@ -321,7 +323,8 @@ void  mcFocI_FieldOrientedControlDisable( tmcFocI_ModuleData_s * const pParamete
 
 
 
-
+   /** Disable rotor position estimation  */
+    mcRpeI_RotorPositionEstimDisable( &mcFoc_State_mds.bPositionEstimation);
 
     /** Disable PWM  module */
     mcPwmI_PulseWidthModulationDisable( &mcFoc_State_mds.bPwmModulator );
@@ -363,7 +366,10 @@ void mcFocI_FieldOrientedControlFast( tmcFocI_ModuleData_s * const pModule )
     /** Clarke transformation */
     mcFoc_ClarkeTransformation( &pModule->dInput.iABC, &pOutput->iAlphaBeta);
 
-    mcRpcI_RotorPositionCalc(&pState->bPositionCalculation, &pOutput->elecAngle, &pOutput->elecSpeed );
+    /** Rotor position estimation */
+    tmcTypes_AlphaBeta_s eAlphaBeta;
+    mcRpeI_RotorPositionEstim(&pState->bPositionEstimation, &pOutput->iAlphaBeta, &pOutput->uAlphaBeta,
+                                            &eAlphaBeta, &pOutput->elecAngle, &pOutput->elecSpeed );
 
     switch(pState->FocState )
     {
@@ -381,12 +387,41 @@ void mcFocI_FieldOrientedControlFast( tmcFocI_ModuleData_s * const pModule )
                 /** Set speed controller state */
                 mcSpeI_SpeedControlManual( &pState->bSpeedController, pState->iQref );
 
-                /** Set FOC state machine to CloseLoop */
-                pState->FocState = FocState_CloseLoop;
+                /** Calculate angle difference */
+                pState->angleDifference = UTIL_AngleDifferenceCalc( pState->openLoopAngle, pOutput->elecAngle );
+
+                /** Set FOC state machine to ClosingLoop */
+                pState->FocState = FocState_ClosingLoop;
             }
 
                 /** Sine-cosine calculation */
                 mcUtils_SineCosineCalculation( pState->openLoopAngle, &sine, &cosine );
+
+                break;
+            }
+	        case FocState_ClosingLoop:
+            {
+                float32_t angle = pOutput->elecAngle + pState->angleDifference;
+                mcUtils_TruncateAngle0To2Pi(&angle);
+
+                /** Ramp-down angle difference */
+                UTIL_LinearRampFloat(&pState->angleDifference, ROTOR_ANGLE_RAMP_RATE, 0.0f );
+
+                if( UTIL_IS_ZERO( pState->angleDifference ))
+                {
+                    pState->angleDifference = 0.0f;
+                    pState->FocState = FocState_CloseLoop;
+                }
+
+                /** Sine-cosine calculation */
+                mcUtils_SineCosineCalculation( angle, &sine, &cosine );
+                /** Reference Control */
+                mcRefI_ReferenceControl( &mcFoc_State_mds.bReferenceController, pModule->dInput.reference, &pState->nRef );
+
+                /** Execute speed controller */
+                pState->nRef *=  pState->commandDirection;
+                mcSpeI_SpeedControlAuto( &pState->bSpeedController, pState->nRef, pOutput->elecSpeed,
+                                                           &pState->iQref );
 
                 break;
             }
@@ -497,6 +532,8 @@ void mcFocI_FieldOrientedControlReset( const tmcFocI_ModuleData_s * const pParam
     /** Reset flux control module */
     mcFlxI_FluxControlReset( &mcFoc_State_mds.bFluxController);
 
+   /** Reset rotor position estimation  */
+    mcRpeI_RotorPositionEstimReset( &mcFoc_State_mds.bPositionEstimation);
 
     /** Reset PWM  module */
     mcPwmI_PulseWidthModulationReset( &mcFoc_State_mds.bPwmModulator );

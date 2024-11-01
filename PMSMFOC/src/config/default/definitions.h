@@ -50,7 +50,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "X2CCode/X2CScope/inc/X2CScope.h"
-#include "peripheral/qei/plib_qei1.h"
 #include "peripheral/adchs/plib_adchs.h"
 #include "peripheral/uart/plib_uart1.h"
 #include "peripheral/uart/plib_uart2.h"

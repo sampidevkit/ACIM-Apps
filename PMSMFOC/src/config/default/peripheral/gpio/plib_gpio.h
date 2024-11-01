@@ -107,21 +107,30 @@
 #define SYS_CLK_Get()               ((PORTC >> 12) & 0x1U)
 #define SYS_CLK_PIN                  GPIO_PIN_RC12
 
-/*** Macros for X2C_RX pin ***/
-#define X2C_RX_Get()               ((PORTB >> 5) & 0x1U)
-#define X2C_RX_PIN                  GPIO_PIN_RB5
+/*** Macros for SYS_CLK_EN pin ***/
+#define SYS_CLK_EN_Set()               (LATCSET = (1U<<15))
+#define SYS_CLK_EN_Clear()             (LATCCLR = (1U<<15))
+#define SYS_CLK_EN_Toggle()            (LATCINV= (1U<<15))
+#define SYS_CLK_EN_OutputEnable()      (TRISCCLR = (1U<<15))
+#define SYS_CLK_EN_InputEnable()       (TRISCSET = (1U<<15))
+#define SYS_CLK_EN_Get()               ((PORTC >> 15) & 0x1U)
+#define SYS_CLK_EN_PIN                  GPIO_PIN_RC15
 
 /*** Macros for DBG_RX pin ***/
-#define DBG_RX_Get()               ((PORTB >> 6) & 0x1U)
-#define DBG_RX_PIN                  GPIO_PIN_RB6
+#define DBG_RX_Get()               ((PORTB >> 5) & 0x1U)
+#define DBG_RX_PIN                  GPIO_PIN_RB5
 
-/*** Macros for X2C_TX pin ***/
-#define X2C_TX_Get()               ((PORTC >> 10) & 0x1U)
-#define X2C_TX_PIN                  GPIO_PIN_RC10
+/*** Macros for X2C_RX pin ***/
+#define X2C_RX_Get()               ((PORTB >> 6) & 0x1U)
+#define X2C_RX_PIN                  GPIO_PIN_RB6
 
 /*** Macros for DBG_TX pin ***/
-#define DBG_TX_Get()               ((PORTB >> 7) & 0x1U)
-#define DBG_TX_PIN                  GPIO_PIN_RB7
+#define DBG_TX_Get()               ((PORTC >> 10) & 0x1U)
+#define DBG_TX_PIN                  GPIO_PIN_RC10
+
+/*** Macros for X2C_TX pin ***/
+#define X2C_TX_Get()               ((PORTB >> 7) & 0x1U)
+#define X2C_TX_PIN                  GPIO_PIN_RB7
 
 /*** Macros for MC_PWM_WH pin ***/
 #define MC_PWM_WH_Get()               ((PORTC >> 6) & 0x1U)
@@ -150,6 +159,24 @@
 /*** Macros for INV_FLT_OC_N pin ***/
 #define INV_FLT_OC_N_Get()               ((PORTF >> 1) & 0x1U)
 #define INV_FLT_OC_N_PIN                  GPIO_PIN_RF1
+
+/*** Macros for DEV_MODE_DISABLE pin ***/
+#define DEV_MODE_DISABLE_Set()               (LATBSET = (1U<<12))
+#define DEV_MODE_DISABLE_Clear()             (LATBCLR = (1U<<12))
+#define DEV_MODE_DISABLE_Toggle()            (LATBINV= (1U<<12))
+#define DEV_MODE_DISABLE_OutputEnable()      (TRISBCLR = (1U<<12))
+#define DEV_MODE_DISABLE_InputEnable()       (TRISBSET = (1U<<12))
+#define DEV_MODE_DISABLE_Get()               ((PORTB >> 12) & 0x1U)
+#define DEV_MODE_DISABLE_PIN                  GPIO_PIN_RB12
+
+/*** Macros for VDC_ENABLE pin ***/
+#define VDC_ENABLE_Set()               (LATBSET = (1U<<13))
+#define VDC_ENABLE_Clear()             (LATBCLR = (1U<<13))
+#define VDC_ENABLE_Toggle()            (LATBINV= (1U<<13))
+#define VDC_ENABLE_OutputEnable()      (TRISBCLR = (1U<<13))
+#define VDC_ENABLE_InputEnable()       (TRISBSET = (1U<<13))
+#define VDC_ENABLE_Get()               ((PORTB >> 13) & 0x1U)
+#define VDC_ENABLE_PIN                  GPIO_PIN_RB13
 
 /*** Macros for IND_ERR_N pin ***/
 #define IND_ERR_N_Set()               (LATASET = (1U<<10))

@@ -61,22 +61,32 @@ typedef struct
    /** States */
    bool enable;
    bool initDone;
+   float32_t  eAlpha;
+   float32_t  eBeta;
+   float32_t  eD;
+   float32_t  eQ;
+   float32_t  uAlpha;
+   float32_t  uBeta;
+   float32_t  iAlpha;
+   float32_t  iBeta;
+   float32_t  n;
+   float32_t  phi;
 
-    uint16_t encPulsesPerElecRev;
-    uint16_t velocityCountPrescaler;
-    float32_t encPulsesToElecVelocity;
-    float32_t encPulsesToElecAngle;
-
-    uint16_t synCounter;
-    uint16_t encPulsesForPosition;
-    int16_t encPulsesForVelocity;
-
-}tmcRpc_State_s;
+   /** Parameters */
+   float32_t   dt;
+   float32_t   Rs;
+   float32_t   dLsByDt;
+   float32_t   eABFilterParameter;
+   float32_t   eDQFilterParameter;
+   float32_t   nFilterParameter;
+   float32_t   oneByKe;
+   float32_t   speedToAngle;
+}tmcRpe_State_s;
 
 /*******************************************************************************
 Private variables
 *******************************************************************************/
-static tmcRpc_State_s mcRpc_State_mds;
+static tmcRpe_State_s mcRpe_State_mds;
 
 /*******************************************************************************
 Interface  variables
@@ -85,6 +95,10 @@ Interface  variables
 /*******************************************************************************
 Macro Functions
 *******************************************************************************/
+/**
+ * Low pass filter: y = y + a* ( x - y )
+ */
+#define LPF(x,y ,a)  (y) = (y) + (a) * ( (x) - (y))
 
 /*******************************************************************************
 Private Functions
@@ -103,22 +117,49 @@ Private Functions
  * @param[out]: None
  * @return: None
  */
-void  mcRpcI_RotorPositionCalcInit( tmcRpc_Parameters_s * const pParameters )
+void  mcRpeI_RotorPositionEstimInit( tmcRpe_Parameters_s * const pParameters )
 {
     /** Link state variable structure to the module */
-    pParameters->pStatePointer = (void *)&mcRpc_State_mds;
-    tmcRpc_State_s * pState = &mcRpc_State_mds;
+    pParameters->pStatePointer = (void *)&mcRpe_State_mds;
+    tmcRpe_State_s * pState = &mcRpe_State_mds;
 
     /** Set parameters */
-    mcRpcI_ParametersSet(pParameters);
+    mcRpeI_ParametersSet(pParameters);
 
     /** Set state parameters  */
-    pState->encPulsesPerElecRev =  pParameters->encPulsesPerElecRev;
-    pState->velocityCountPrescaler = pParameters->velocityCountPrescaler;
-    pState->encPulsesToElecAngle =  TWO_PI / (float32_t)pState->encPulsesPerElecRev;
+    pState->Rs =  pParameters->pMotorParameters->RsInOhms;
+    pState->dt = pParameters->dt;
+    pState->dLsByDt = pParameters->pMotorParameters->LdInHenry / pState->dt;
 
-    float32_t temp = (float32_t)pParameters->encPulsesPerElecRev * pParameters->pMotorParameters->PolePairs;
-    pState->encPulsesToElecVelocity =  60.0f / ( temp * pParameters->dt * (float32_t)pParameters->velocityCountPrescaler );
+    /**
+         *  Calculate filter parameters:
+         *  Assumption: The frequency of alpha and beta axis is restrained by the maximum
+         *  speed of the motor
+         *      Nmax (in Hertz ) = Zp * Nrpm / 60
+         *
+         *  Considering cut-off frequency as twice the value of Nmax
+         *      Fo ( in Hertz ) = 2 * Nmax
+         *
+         *      Tau = 1/( 2* Pi * Fo )
+         *
+         *  For a discrete first order forward euler filter, the filter parameter can be
+         *  calculated as follows:
+         *
+         *      a = ts/( ts + Tau ), where ts is the sampling time
+         */
+    float32_t temp;
+    temp = pParameters->pMotorParameters->PolePairs;
+    temp = temp * pParameters->pMotorParameters->NmaxInRpm;
+    temp = 2.0f * temp/ 60.0f;
+    temp = 1.0f/( TWO_PI * temp );
+    pState->eABFilterParameter = pState->dt/(pState->dt + temp );
+
+    /** ToDO: Remove magic numbers */
+    pState->oneByKe = ( 1.73f * 1000.0f )/ ( pParameters->Ke );
+    pState->speedToAngle = TWO_PI * pParameters->pMotorParameters->PolePairs * pState->dt/ 60.0f;
+
+    pState->eDQFilterParameter = 1.0f;
+    pState->nFilterParameter = 1.0f;
 
     /** Set initialization flag to true */
     pState->initDone = true;
@@ -134,16 +175,16 @@ void  mcRpcI_RotorPositionCalcInit( tmcRpc_Parameters_s * const pParameters )
  * @param[out]: None
  * @return: None
  */
-void  mcRpcI_RotorPositionCalcEnable( tmcRpc_Parameters_s * const pParameters )
+void  mcRpeI_RotorPositionEstimEnable( tmcRpe_Parameters_s * const pParameters )
 {
     /** Get the linked state variable */
-    tmcRpc_State_s * pState;
-    pState = (tmcRpc_State_s *)pParameters->pStatePointer;
+    tmcRpe_State_s * pState;
+    pState = (tmcRpe_State_s *)pParameters->pStatePointer;
 
     if( ( NULL == pState ) || ( !pState->initDone ))
     {
          /** Initialize parameters */
-        mcRpcI_RotorPositionCalcInit(pParameters);
+        mcRpeI_RotorPositionEstimInit(pParameters);
     }
     else
     {
@@ -164,16 +205,16 @@ void  mcRpcI_RotorPositionCalcEnable( tmcRpc_Parameters_s * const pParameters )
  * @param[out]: None
  * @return: None
  */
-void  mcRpcI_RotorPositionCalcDisable( tmcRpc_Parameters_s * const pParameters )
+void  mcRpeI_RotorPositionEstimDisable( tmcRpe_Parameters_s * const pParameters )
 {
     /** Get the linked state variable */
-    tmcRpc_State_s * pState;
-    pState = (tmcRpc_State_s *)pParameters->pStatePointer;
+    tmcRpe_State_s * pState;
+    pState = (tmcRpe_State_s *)pParameters->pStatePointer;
 
     if( NULL != pState)
     {
         /** Reset state variables  */
-        mcRpcI_RotorPositionCalcReset(pParameters);
+        mcRpeI_RotorPositionEstimReset(pParameters);
     }
     else
     {
@@ -194,50 +235,80 @@ void  mcRpcI_RotorPositionCalcDisable( tmcRpc_Parameters_s * const pParameters )
  * @param[out]: None
  * @return: None
  */
-void mcRpcI_RotorPositionCalc(  const tmcRpc_Parameters_s * const pParameters,
-                                                  float32_t * const pAngle, float32_t * const pSpeed )
+void mcRpeI_RotorPositionEstim(  const tmcRpe_Parameters_s * const pParameters,
+                                                     const tmcTypes_AlphaBeta_s * pIAlphaBeta,
+                                                     const tmcTypes_AlphaBeta_s * pUAlphaBeta,
+                                                     tmcTypes_AlphaBeta_s * pEAlphaBeta,
+                                                     float32_t * pAngle, float32_t * pSpeed )
 {
      /** Get the linked state variable */
-     tmcRpc_State_s * pState;
-     pState = (tmcRpc_State_s *)pParameters->pStatePointer;
+     tmcRpe_State_s * pState;
+     pState = (tmcRpe_State_s *)pParameters->pStatePointer;
 
      if( pState->enable )
      {
+         float32_t temp = 0.0f;
+         float32_t sine = 0.0f;
+         float32_t cosine= 0.0f;
 
-         tmcRpc_Input_s dInput = { 0u };
+         /** Calculate back EMF along alpha and beta axis */
+         temp = pState->uAlpha;
+         temp -= ( pIAlphaBeta->alpha * pState->Rs );
+         temp -= ( pIAlphaBeta->alpha - pState->iAlpha ) * pState->dLsByDt;
+         LPF( temp, pState->eAlpha, pState->eABFilterParameter );
 
-         pState->synCounter++;
+         temp  =  pState->uBeta;
+         temp -= ( pIAlphaBeta->beta * pState->Rs );
+         temp -= ( pIAlphaBeta->beta - pState->iBeta ) * pState->dLsByDt;
+         LPF( temp, pState->eBeta, pState->eABFilterParameter);
 
-         /** Read input ports */
-         mcRpcI_PositionCounterRead( &dInput );
+         /** Update state variables for next cycle calculation */
+         pState->uAlpha  = pUAlphaBeta->alpha;
+         pState->uBeta  =  pUAlphaBeta->beta;
+         pState->iAlpha  =  pIAlphaBeta->alpha ;
+         pState->iBeta   =  pIAlphaBeta->beta;
 
-        /* Get position pulse count */
-        pState->encPulsesForPosition = (uint16_t)dInput.encPulseCount;
+         /** Determine back EMF along direct and quadrature axis using estimated angle */
+         mcUtils_SineCosineCalculation( pState->phi, &sine, &cosine );
 
-        /* Calculate velocity */
-        if( pState->synCounter > pState->velocityCountPrescaler )
-        {
-            pState->synCounter = 0u;
-            mcRpcI_SpeedCounterRead( &dInput );
-            pState->encPulsesForVelocity = (int16_t)dInput.encVelocityCount;
-        }
+         temp  =     pState->eAlpha * cosine;
+         temp +=  ( pState->eBeta * sine );
+         LPF( temp, pState->eD, pState->eDQFilterParameter);
 
-        /* Write speed and position output */
-        *pSpeed = (float32_t)pState->encPulsesForVelocity * pState->encPulsesToElecVelocity;
-        *pAngle  = (float32_t)pState->encPulsesForPosition * pState->encPulsesToElecAngle;
+         temp  =    -pState->eAlpha * sine;
+         temp +=  ( pState->eBeta * cosine );
+         LPF( temp, pState->eQ, pState->eDQFilterParameter);
 
-        /* Limit rotor angle range to 0 to 2*M_PI for lookup table */
-        mcUtils_TruncateAngle0To2Pi( pAngle );
+         /** Determine speed  */
+         if( pState->eQ > 0.0f ) {
+             temp  = pState->oneByKe * ( pState->eQ - pState->eD );
+         }
+         else  {
+             temp  = pState->oneByKe * ( pState->eQ + pState->eD );
+         }
+
+         LPF( temp, pState->n, pState->nFilterParameter);
+
+         /** Determine phase angle */
+         pState->phi += ( pState->speedToAngle * pState->n );
+         mcUtils_TruncateAngle0To2Pi( &pState->phi );
+
+         /** Update output */
+         *pSpeed = pState->n;
+         *pAngle = pState->phi;
      }
      else
      {
          /** Rotor position estimation */
-         mcRpcI_RotorPositionCalcReset( pParameters );
+         mcRpeI_RotorPositionEstimReset( pParameters );
 
          /** Update output */
          *pSpeed = 0.0f;
          *pAngle = 0.0f;
      }
+
+     pEAlphaBeta->alpha = pState->eAlpha;
+     pEAlphaBeta->beta = pState->eBeta;
 }
 
 
@@ -251,14 +322,15 @@ void mcRpcI_RotorPositionCalc(  const tmcRpc_Parameters_s * const pParameters,
  * @param[out]: None
  * @return:
  */
-void mcRpcI_RotorPositionCalcReset( const tmcRpc_Parameters_s * const pParameters )
+void mcRpeI_RotorPositionEstimReset( const tmcRpe_Parameters_s * const pParameters )
 {
     /** Get the linked state variable */
-    tmcRpc_State_s * pState;
-    pState = (tmcRpc_State_s *)pParameters->pStatePointer;
+    tmcRpe_State_s * pState;
+    pState = (tmcRpe_State_s *)pParameters->pStatePointer;
 
-    /* Reset state variables */
-    pState->synCounter = 0u;
-    pState->encPulsesForPosition  = 0u;
-    pState->encPulsesForVelocity = 0;
+    /** Reset state variables  */
+    pState->iAlpha = 0.0f;
+    pState->iBeta = 0.0f;
+    pState->uAlpha = 0.0f;
+    pState->uBeta = 0.0f;
 }

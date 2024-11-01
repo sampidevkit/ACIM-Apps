@@ -46,7 +46,6 @@
 #include "mc_types.h"
 #include "mc_utilities.h"
 #include "mc_motor.h"
-#include "mc_hardware_abstraction.h"
 
 /*******************************************************************************
  Default Module configuration parameters

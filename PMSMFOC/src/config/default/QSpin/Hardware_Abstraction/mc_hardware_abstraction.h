@@ -206,35 +206,6 @@ __STATIC_FORCEINLINE void mcHalI_AdcInterruptEnable( void )
     EVIC_SourceEnable(INT_SOURCE_ADC_DATA0);
 }
 
-/*! \brief Get the encoder count
- *
- * Details.
- * Get the encoder count
- *
- * @param[in]:
- * @param[in/out]:
- * @param[out]:
- * @return:
- */
-__STATIC_FORCEINLINE uint16_t mcHalI_EncoderPositionGet( void  )
-{
-        return (uint16_t)QEI1_PositionGet();
-}
-
-/*! \brief Get the encoder velocity count
- *
- * Details.
- * Get the encoder count
- *
- * @param[in]:
- * @param[in/out]:
- * @param[out]:
- * @return:
- */
-__STATIC_FORCEINLINE int16_t mcHalI_EncoderVelocityGet( void  )
-{
-    return (int16_t)QEI1_VelocityGet();
-}
 
 /*******************************************************************************
  * Interface Functions
@@ -333,16 +304,5 @@ void mcHalI_PwmCallbackRegister( MCPWM_CH_CALLBACK callback, uintptr_t context )
 
 
 
-/*! \brief Start the encoder peripheral
- * 
- * Details.
- * Start the encoder peripheral
- * 
- * @param[in]: 
- * @param[in/out]:
- * @param[out]:
- * @return:
- */
-void mcHalI_EncoderStart( void  );
 
 #endif // MCHAL_H

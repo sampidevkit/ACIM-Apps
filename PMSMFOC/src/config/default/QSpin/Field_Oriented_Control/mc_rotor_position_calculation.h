@@ -38,8 +38,8 @@
  *******************************************************************************/
 //DOM-IGNORE-END
 
-#ifndef MCRPC_H
-#define MCRPC_H
+#ifndef MCRPE_H
+#define MCRPE_H
 
 /*******************************************************************************
  * Header inclusions
@@ -47,8 +47,6 @@
 #include "mc_types.h"
 #include "mc_motor.h"
 #include "mc_utilities.h"
-#include "mc_hardware_abstraction.h"
-
 
 /*******************************************************************************
  Default Module configuration parameters
@@ -59,24 +57,15 @@ Type Definition
 *******************************************************************************/
 typedef struct
 {
-    uint16_t encPulseCount;
-    int16_t encVelocityCount;
-}tmcRpc_Input_s;
-
-typedef struct
-{
-    /** Motor parameters */
+/** Motor parameters */
     tmcMot_PMSM_s  * pMotorParameters;
 
+    /** BEMF observer parameters */
+    float32_t Ke;
     float32_t dt;
-    uint16_t velocityCountPrescaler;
-
-    /** Encoder parameters */
-    uint16_t encPulsesPerElecRev;
-    uint16_t encPulsePerMechRev;
-
+    float32_t nMin;
     void * pStatePointer;
-}tmcRpc_Parameters_s;
+}tmcRpe_Parameters_s;
 
 /*******************************************************************************
  * Interface variables
@@ -85,7 +74,6 @@ typedef struct
 /*******************************************************************************
  Static Interface Functions
 *******************************************************************************/
-
 /*! \brief Set module parameters
  *
  * Details.
@@ -96,47 +84,15 @@ typedef struct
  * @param[out]: None
  * @return: None
  */
-__STATIC_INLINE void mcRpcI_PositionCounterRead( tmcRpc_Input_s * const pInput )
-{
-    pInput->encPulseCount = mcHalI_EncoderPositionGet();
-}
-
-/*! \brief Set module parameters
- *
- * Details.
- * Set module parameters
- *
- * @param[in]: None
- * @param[in/out]: None
- * @param[out]: None
- * @return: None
- */
-__STATIC_INLINE void mcRpcI_SpeedCounterRead( tmcRpc_Input_s * const pInput )
-{
-    pInput->encVelocityCount = mcHalI_EncoderVelocityGet();
-}
-
-/*! \brief Set module parameters
- *
- * Details.
- * Set module parameters
- *
- * @param[in]: None
- * @param[in/out]: None
- * @param[out]: None
- * @return: None
- */
-__STATIC_INLINE void mcRpcI_ParametersSet( tmcRpc_Parameters_s * const pParameters )
+__STATIC_INLINE void mcRpeI_ParametersSet( tmcRpe_Parameters_s * const pParameters )
 {
     /** Motor parameters */
     pParameters->pMotorParameters = &mcMotI_PMSM_gds;
 
-     pParameters->velocityCountPrescaler = 100u;
-     pParameters->dt = (float32_t)(0.00005);
-
-    /** Encoder parameters  */
-    pParameters->encPulsesPerElecRev = (uint16_t)2000;
-    pParameters->encPulsePerMechRev = pParameters->encPulsesPerElecRev * (uint16_t)mcMotI_PMSM_gds.PolePairs;
+    /** BEMF observer parameters */
+    pParameters->Ke = (float32_t)7.515;
+    pParameters->dt = (float32_t)(0.00005);
+    pParameters->nMin = 500.0f ;
 }
 
 /*******************************************************************************
@@ -152,7 +108,7 @@ __STATIC_INLINE void mcRpcI_ParametersSet( tmcRpc_Parameters_s * const pParamete
  * @param[out]: None
  * @return: None
  */
-void  mcRpcI_RotorPositionCalcInit( tmcRpc_Parameters_s * const pParameters );
+void  mcRpeI_RotorPositionEstimInit( tmcRpe_Parameters_s * const pParameters );
 
 /*! \brief Enable rotor position estimation module
  *
@@ -164,7 +120,7 @@ void  mcRpcI_RotorPositionCalcInit( tmcRpc_Parameters_s * const pParameters );
  * @param[out]: None
  * @return: None
  */
-void  mcRpcI_RotorPositionCalcEnable( tmcRpc_Parameters_s * const pParameters );
+void  mcRpeI_RotorPositionEstimEnable( tmcRpe_Parameters_s * const pParameters );
 
 /*! \brief Disable rotor position estimation module
  *
@@ -176,7 +132,7 @@ void  mcRpcI_RotorPositionCalcEnable( tmcRpc_Parameters_s * const pParameters );
  * @param[out]: None
  * @return: None
  */
-void  mcRpcI_RotorPositionCalcDisable( tmcRpc_Parameters_s * const pParameters );
+void  mcRpeI_RotorPositionEstimDisable( tmcRpe_Parameters_s * const pParameters );
 
 /*! \brief Rotor position estimation
  *
@@ -188,8 +144,11 @@ void  mcRpcI_RotorPositionCalcDisable( tmcRpc_Parameters_s * const pParameters )
  * @param[out]: None
  * @return: None
  */
-void mcRpcI_RotorPositionCalc(  const tmcRpc_Parameters_s * const pParameters,
-                                  float32_t * const pAngle, float32_t * const pSpeed );
+void mcRpeI_RotorPositionEstim(  const tmcRpe_Parameters_s * const pParameters,
+                                                     const tmcTypes_AlphaBeta_s * pIAlphaBeta,
+                                                     const tmcTypes_AlphaBeta_s * pUAlphaBeta,
+                                                     tmcTypes_AlphaBeta_s * pEAlphaBeta,
+                                                     float32_t * pAngle, float32_t * pSpeed );
 
 /*! \brief Reset Rotor position estimation
  *
@@ -201,6 +160,6 @@ void mcRpcI_RotorPositionCalc(  const tmcRpc_Parameters_s * const pParameters,
  * @param[out]: None
  * @return:
  */
-void mcRpcI_RotorPositionCalcReset( const tmcRpc_Parameters_s * const pParameters );
+void mcRpeI_RotorPositionEstimReset( const tmcRpe_Parameters_s * const pParameters );
 
-#endif // MCRPC_H
+#endif // MCRPE_H

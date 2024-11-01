@@ -57,6 +57,8 @@ typedef struct
 {
     float32_t minimumRpm;
     float32_t maximumRpm;
+    float32_t rpmPerSecond;
+    float32_t dt;
     void * pStatePointer;
 }tmcRef_Parameters_s;
 
@@ -79,9 +81,11 @@ typedef struct
  */
 __STATIC_INLINE void mcRefI_ParametersSet( tmcRef_Parameters_s * const pParameters )
 {
-    pParameters->minimumRpm = (float32_t)0.0f;
-    pParameters->maximumRpm = (float32_t)3500;
+    pParameters->minimumRpm = (float32_t)500;
+    pParameters->maximumRpm = (float32_t)1500;
 
+    pParameters->rpmPerSecond = (float32_t)(100);
+    pParameters->dt =(float32_t)(0.00005);
 }
 
 /*******************************************************************************

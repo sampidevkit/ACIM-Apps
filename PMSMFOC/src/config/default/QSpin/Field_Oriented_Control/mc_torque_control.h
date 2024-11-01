@@ -82,8 +82,8 @@ typedef struct
  */
 __STATIC_INLINE void mcTorI_ParametersSet( tmcTor_Parameters_s * const pParameters )
 {
-   pParameters->Kp = (float32_t)0.014955;
-   pParameters->Ki =  (float32_t)13.319;
+   pParameters->Kp = (float32_t)4.324;
+   pParameters->Ki =  (float32_t)1150;
    pParameters->dt =  (float32_t)(0.00005);
 }
 
