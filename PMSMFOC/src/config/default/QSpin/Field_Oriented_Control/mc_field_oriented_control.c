@@ -487,6 +487,25 @@ void mcFocI_FieldOrientedControlFast( tmcFocI_ModuleData_s * const pModule )
 void mcFocI_FieldOrientedControlSlow( const tmcFocI_ModuleData_s * const pParameters )
 {
     /** ToDO: Put appropriate tasks */
+    static uint32_t tk=0;
+    
+    if(++tk>=100)
+    {
+        tk=0;
+        IND_RUN_Toggle();
+        
+        if(DEV_MODE_DISABLE_Get()==0)
+        {
+            IND_ERR_N_Clear();
+            DEV_MODE_DISABLE_Set();
+            printf("\nDisable DEVMODE");
+        }
+        
+        printf("\nIa=%.3f", pParameters->dInput.iABC.a);
+        printf("\nIb=%.3f", pParameters->dInput.iABC.b);
+        printf("\nIc=%.3f", pParameters->dInput.iABC.b);
+        printf("\nUDC=%.3f", pParameters->dInput.uBus);
+    }
 }
 
 /*! \brief Field Oriented Control ( FOC )

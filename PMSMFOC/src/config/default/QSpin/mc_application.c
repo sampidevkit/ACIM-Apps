@@ -162,6 +162,9 @@ __STATIC_INLINE void mcAppI_1msTasksHandler( void )
  */
 void mcAppI_ApplicationInit( void )
 {   
+    IND_ERR_N_Set();
+    VDC_ENABLE_Clear();
+    DEV_MODE_DISABLE_Clear();
     /** ADC end of conversion interrupt generation for FOC control */
     mcHalI_AdcInterruptDisable();
     mcHalI_AdcInterruptClear();
@@ -196,7 +199,8 @@ void mcAppI_ApplicationInit( void )
     /** Initialize PMSM motor control */
     mcFocI_FieldOrientedControlInit( &mcFocI_ModuleData_gds);
 
-
+    VDC_ENABLE_Set();
+    printf("\nMC APP init");
 }
 
 /*! \brief Over current reaction ISR
