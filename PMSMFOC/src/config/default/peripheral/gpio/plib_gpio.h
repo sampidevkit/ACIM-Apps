@@ -160,23 +160,23 @@
 #define INV_FLT_OC_N_Get()               ((PORTF >> 1) & 0x1U)
 #define INV_FLT_OC_N_PIN                  GPIO_PIN_RF1
 
-/*** Macros for DEV_MODE_DISABLE pin ***/
-#define DEV_MODE_DISABLE_Set()               (LATBSET = (1U<<12))
-#define DEV_MODE_DISABLE_Clear()             (LATBCLR = (1U<<12))
-#define DEV_MODE_DISABLE_Toggle()            (LATBINV= (1U<<12))
-#define DEV_MODE_DISABLE_OutputEnable()      (TRISBCLR = (1U<<12))
-#define DEV_MODE_DISABLE_InputEnable()       (TRISBSET = (1U<<12))
-#define DEV_MODE_DISABLE_Get()               ((PORTB >> 12) & 0x1U)
-#define DEV_MODE_DISABLE_PIN                  GPIO_PIN_RB12
-
 /*** Macros for VDC_ENABLE pin ***/
-#define VDC_ENABLE_Set()               (LATBSET = (1U<<13))
-#define VDC_ENABLE_Clear()             (LATBCLR = (1U<<13))
-#define VDC_ENABLE_Toggle()            (LATBINV= (1U<<13))
-#define VDC_ENABLE_OutputEnable()      (TRISBCLR = (1U<<13))
-#define VDC_ENABLE_InputEnable()       (TRISBSET = (1U<<13))
-#define VDC_ENABLE_Get()               ((PORTB >> 13) & 0x1U)
-#define VDC_ENABLE_PIN                  GPIO_PIN_RB13
+#define VDC_ENABLE_Set()               (LATBSET = (1U<<12))
+#define VDC_ENABLE_Clear()             (LATBCLR = (1U<<12))
+#define VDC_ENABLE_Toggle()            (LATBINV= (1U<<12))
+#define VDC_ENABLE_OutputEnable()      (TRISBCLR = (1U<<12))
+#define VDC_ENABLE_InputEnable()       (TRISBSET = (1U<<12))
+#define VDC_ENABLE_Get()               ((PORTB >> 12) & 0x1U)
+#define VDC_ENABLE_PIN                  GPIO_PIN_RB12
+
+/*** Macros for DEV_MODE_DISABLE pin ***/
+#define DEV_MODE_DISABLE_Set()               (LATBSET = (1U<<13))
+#define DEV_MODE_DISABLE_Clear()             (LATBCLR = (1U<<13))
+#define DEV_MODE_DISABLE_Toggle()            (LATBINV= (1U<<13))
+#define DEV_MODE_DISABLE_OutputEnable()      (TRISBCLR = (1U<<13))
+#define DEV_MODE_DISABLE_InputEnable()       (TRISBSET = (1U<<13))
+#define DEV_MODE_DISABLE_Get()               ((PORTB >> 13) & 0x1U)
+#define DEV_MODE_DISABLE_PIN                  GPIO_PIN_RB13
 
 /*** Macros for IND_ERR_N pin ***/
 #define IND_ERR_N_Set()               (LATASET = (1U<<10))

@@ -252,7 +252,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;1000000&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;921600&quot;/&gt;
     &lt;/Values&gt;
   &lt;/X2CScope&gt;
 &lt;/X2CScope&gt;
@@ -4904,7 +4904,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;383&quot; canvasWidth=&quot;751&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;396&quot; canvasWidth=&quot;751&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -5748,7 +5748,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;BSP_PIN_62_FUNCTION_NAME&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;DEV_MODE_DISABLE&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;VDC_ENABLE&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -5792,7 +5792,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;BSP_PIN_63_FUNCTION_NAME&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;VDC_ENABLE&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;DEV_MODE_DISABLE&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -18419,8 +18419,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;uart1&gt;
   &lt;uart1 dnOrder=&quot;0&quot; id=&quot;BAUD_RATE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;X2C Model&quot; value=&quot;115200&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;1000000&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;921600&quot;/&gt;
     &lt;/Values&gt;
   &lt;/uart1&gt;
 &lt;/uart1&gt;
@@ -18431,7 +18430,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;uart1&gt;
   &lt;uart1 dnOrder=&quot;0&quot; id=&quot;BRG_VALUE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;uart1&quot; value=&quot;14&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;uart1&quot; value=&quot;15&quot;/&gt;
     &lt;/Values&gt;
   &lt;/uart1&gt;
 &lt;/uart1&gt;
@@ -19440,7 +19439,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\QSpin\Field_Oriented_Control\mc_flux_control.h</file>
-         <hash>a5d9bfd901d9c1974a13d2be0abf8e217a1cd5d68e7a2621eaacfbe818e2de53</hash>
+         <hash>00dc5e8f1cf33903be6fc2e5c30d4251f1f169923acc09c6426ad05ca55f6b86</hash>
       </entry>
       <entry>
          <file>..\src\config\default\QSpin\Field_Oriented_Control\mc_flying_start.c</file>
@@ -19644,7 +19643,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\gpio\plib_gpio.h</file>
-         <hash>0eae8cfd5dc7d376ea71aeac4729e5c7b9e7bbdc2a35244b9063914289203227</hash>
+         <hash>611fbf60c32c10af6f8cb57b1607a30b9120696127f30966864b96965ec5d50e</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\mcpwm\plib_mcpwm.c</file>
@@ -19660,7 +19659,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\uart\plib_uart1.c</file>
-         <hash>6f2bb4564c6cd3200f4313a081db748caa7ea8e4bb90e7a204689d1907610ad6</hash>
+         <hash>8ee7097788d9ab4dd2577bd055f257ad5c8215cf00125d8871864f7922c37cad</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\uart\plib_uart1.h</file>

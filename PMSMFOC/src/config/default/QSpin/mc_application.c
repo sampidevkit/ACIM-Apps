@@ -53,13 +53,13 @@ Headers inclusions
 /*******************************************************************************
  Private data-types 
  *******************************************************************************/
-   
+
 /*******************************************************************************
  Private variables 
  *******************************************************************************/
- static uint32_t mcAppI_1msSyncCounter_gdu32;
+static uint32_t mcAppI_1msSyncCounter_gdu32;
 static uintptr_t dummyForMisra;
-static uint8_t runStatus = 0u;
+static uint8_t runStatus=0u;
 
 /*******************************************************************************
  Interface variables 
@@ -68,7 +68,7 @@ static uint8_t runStatus = 0u;
 /*******************************************************************************
  Private Functions 
  *******************************************************************************/
- 
+
 /*! \brief Start stop button scan
  *
  * Details.
@@ -81,27 +81,27 @@ static uint8_t runStatus = 0u;
  */
 __STATIC_INLINE void mcAppI_MotorStartStop(void)
 {
-    if( 0u == runStatus )
+    if(0u==runStatus)
     {
         /** Start motor  */
-        mcFocI_FieldOrientedControlEnable( &mcFocI_ModuleData_gds );
+        mcFocI_FieldOrientedControlEnable(&mcFocI_ModuleData_gds);
 
 
         /** Enable voltage source inverter */
         mcHalI_InverterPwmEnable();
 
-        runStatus = 1u;
+        runStatus=1u;
     }
     else
     {
         /** Start motor  */
-        mcFocI_FieldOrientedControlDisable( &mcFocI_ModuleData_gds );
-   
+        mcFocI_FieldOrientedControlDisable(&mcFocI_ModuleData_gds);
+
 
         /** Enable voltage source inverter */
         mcHalI_InverterPwmDisable();
 
-        runStatus = 0u;
+        runStatus=0u;
     }
 }
 
@@ -118,12 +118,12 @@ __STATIC_INLINE void mcAppI_MotorStartStop(void)
 
 __STATIC_INLINE void mcAppI_DirectionReverse(void)
 {
-    if( 0u == runStatus )
+    if(0u==runStatus)
     {
-       /** Change state variable to toggle motor spin direction  */
-       mcFocI_MotorDirectionChange(&mcFocI_ModuleData_gds);
+        /** Change state variable to toggle motor spin direction  */
+        mcFocI_MotorDirectionChange(&mcFocI_ModuleData_gds);
 
-   
+
     }
 }
 
@@ -137,10 +137,10 @@ __STATIC_INLINE void mcAppI_DirectionReverse(void)
  * @param[out]:
  * @return:
  */
-__STATIC_INLINE void mcAppI_1msTasksHandler( void )
+__STATIC_INLINE void mcAppI_1msTasksHandler(void)
 {
 
-   
+
     /** Field Oriented control - Slow Tasks */
     mcFocI_FieldOrientedControlSlow(&mcFocI_ModuleData_gds);
 
@@ -160,8 +160,8 @@ __STATIC_INLINE void mcAppI_1msTasksHandler( void )
  * @param[out]:
  * @return:
  */
-void mcAppI_ApplicationInit( void )
-{   
+void mcAppI_ApplicationInit(void)
+{
     IND_ERR_N_Set();
     VDC_ENABLE_Clear();
     DEV_MODE_DISABLE_Clear();
@@ -170,34 +170,34 @@ void mcAppI_ApplicationInit( void )
     mcHalI_AdcInterruptClear();
 
     /** Enable ADC interrupt for field oriented control */
-    mcHalI_AdcCallBackRegister(  (ADCHS_CALLBACK)mcAppI_AdcCalibrationIsr, (uintptr_t)dummyForMisra );
-    mcHalI_AdcInterruptEnable( );
+    mcHalI_AdcCallBackRegister((ADCHS_CALLBACK) mcAppI_AdcCalibrationIsr, (uintptr_t) dummyForMisra);
+    mcHalI_AdcInterruptEnable();
 
 
     /** Enable interrupt for fault detection */
-    mcHalI_PwmCallbackRegister( (MCPWM_CH_CALLBACK)mcAppI_OverCurrentReactionIsr, (uintptr_t)dummyForMisra );
+#warning "Uncomment here"
+    //mcHalI_PwmCallbackRegister((MCPWM_CH_CALLBACK) mcAppI_OverCurrentReactionIsr, (uintptr_t) dummyForMisra);
 
     /** Enable PWM interrupt to detect fault */
-    mcHalI_PwmInterruptEnable( );
+    mcHalI_PwmInterruptEnable();
 
     /** Enables PWM channels. */
-    mcHalI_PwmTimerStart( );
+    mcHalI_PwmTimerStart();
 
     /** Disable PWM output */
     mcHalI_InverterPwmDisable();
 
     /** Set motor parameters */
-    mcMotI_MotorParametersInit( &mcMotI_PMSM_gds);
-        
+    mcMotI_MotorParametersInit(&mcMotI_PMSM_gds);
+
     /** Initialize Current calculation */
     mcCurI_CurrentCalculationInit(&mcCurI_ModuleData_gds);
 
     /** Initialize Voltage measurement  */
-    mcVolI_VoltageCalculationInit( &mcVolI_ModuleData_gds );
-   
+    mcVolI_VoltageCalculationInit(&mcVolI_ModuleData_gds);
 
     /** Initialize PMSM motor control */
-    mcFocI_FieldOrientedControlInit( &mcFocI_ModuleData_gds);
+    mcFocI_FieldOrientedControlInit(&mcFocI_ModuleData_gds);
 
     VDC_ENABLE_Set();
     printf("\nMC APP init");
@@ -213,10 +213,10 @@ void mcAppI_ApplicationInit( void )
  * @param[out]:
  * @return:
  */
-void mcAppI_OverCurrentReactionIsr( MCPWM_CH_STATUS status, uintptr_t context )
+void mcAppI_OverCurrentReactionIsr(MCPWM_CH_STATUS status, uintptr_t context)
 {
     /** Initialize PMSM motor control */
-    mcFocI_FieldOrientedControlInit( &mcFocI_ModuleData_gds);
+    mcFocI_FieldOrientedControlInit(&mcFocI_ModuleData_gds);
 
     /** Reset software modules */
     mcAppI_ApplicationReset();
@@ -237,8 +237,8 @@ void mcAppI_OverCurrentReactionIsr( MCPWM_CH_STATUS status, uintptr_t context )
  * @param[out]:
  * @return:
  */
-void mcAppI_AdcCalibrationIsr( ADCHS_CHANNEL_NUM channel, uintptr_t context )
-{    
+void mcAppI_AdcCalibrationIsr(ADCHS_CHANNEL_NUM channel, uintptr_t context)
+{
     tmcTypes_StdReturn_e returnStatus;
 
     /** ADC end of conversion interrupt generation for FOC control */
@@ -250,12 +250,12 @@ void mcAppI_AdcCalibrationIsr( ADCHS_CHANNEL_NUM channel, uintptr_t context )
     mcHalI_PhaseBCurrentGet();
 
     /** Phase current offset measurement  */
-    returnStatus = mcCurI_CurrentOffsetCalculation(&mcCurI_ModuleData_gds );
+    returnStatus=mcCurI_CurrentOffsetCalculation(&mcCurI_ModuleData_gds);
 
     /** Current sense amplifiers offset calculation */
-    if( StdReturn_Complete == returnStatus )
+    if(StdReturn_Complete==returnStatus)
     {
-        mcHalI_AdcCallBackRegister( (ADCHS_CALLBACK)mcAppI_AdcFinishedIsr, (uintptr_t)dummyForMisra );
+        mcHalI_AdcCallBackRegister((ADCHS_CALLBACK) mcAppI_AdcFinishedIsr, (uintptr_t) dummyForMisra);
     }
     else
     {
@@ -265,7 +265,7 @@ void mcAppI_AdcCalibrationIsr( ADCHS_CHANNEL_NUM channel, uintptr_t context )
     /** Calibration and monitoring update */
     X2CScope_Update();
 
-     /** ADC end of conversion interrupt generation for FOC control */
+    /** ADC end of conversion interrupt generation for FOC control */
     mcHalI_AdcInterruptClear();
     mcHalI_AdcInterruptEnable();
 }
@@ -280,7 +280,7 @@ void mcAppI_AdcCalibrationIsr( ADCHS_CHANNEL_NUM channel, uintptr_t context )
  * @param[out]:
  * @return:
  */
-void mcAppI_AdcFinishedIsr( ADCHS_CHANNEL_NUM channel, uintptr_t context )
+void mcAppI_AdcFinishedIsr(ADCHS_CHANNEL_NUM channel, uintptr_t context)
 {
     /** ADC interrupt disable  */
     mcHalI_AdcInterruptDisable();
@@ -289,19 +289,20 @@ void mcAppI_AdcFinishedIsr( ADCHS_CHANNEL_NUM channel, uintptr_t context )
     /** Read phase currents  */
     mcHalI_PhaseACurrentGet();
     mcHalI_PhaseBCurrentGet();
-    
+
 
     /** Current calculation */
     mcCurI_CurrentCalculation(&mcCurI_ModuleData_gds);
 
     /** Initialize PMSM motor control */
-    mcFocI_FieldOrientedControlFast( &mcFocI_ModuleData_gds);
+#warning "Uncomment here"
+    //mcFocI_FieldOrientedControlFast(&mcFocI_ModuleData_gds);
 
     /** Set duty */
-    mcHalI_InverterPwmSet(mcPwmI_Duty_gau16);
+    //mcHalI_InverterPwmSet(mcPwmI_Duty_gau16);
 
     /** Bus voltage calculation */
-    mcVolI_VoltageCalculation( &mcVolI_ModuleData_gds );
+    mcVolI_VoltageCalculation(&mcVolI_ModuleData_gds);
 
     /** Read DC bus voltage */
     mcHalI_DcLinkVoltageGet();
@@ -331,12 +332,59 @@ void mcAppI_AdcFinishedIsr( ADCHS_CHANNEL_NUM channel, uintptr_t context )
  * @param[out]:
  * @return:
  */
-void mcAppI_NonISRTasks( void )
+void mcAppI_NonISRTasks(void)
 {
-    float32_t loopCount = 0.001f * (float32_t)(20000);
-    if( mcAppI_1msSyncCounter_gdu32 >= (uint32_t)loopCount )
+    //float32_t loopCount=0.001f*(float32_t) (20000);
+
+    //if(mcAppI_1msSyncCounter_gdu32>=(uint32_t) loopCount)
+    if(mcAppI_1msSyncCounter_gdu32>=20U)
     {
-        mcAppI_1msSyncCounter_gdu32 = 0u;
+#if(1)
+        static const uint16_t dutyTable[126]={
+            32768, 31130, 29496, 27871, 26258, 24661, 23084, 21531,
+            20007, 18515, 17058, 15640, 14265, 12937, 11658, 10432,
+            9261, 8150, 7099, 6114, 5194, 4344, 3564, 2858,
+            2226, 1671, 1194, 795, 476, 238, 82, 7,
+            13, 102, 273, 524, 856, 1268, 1759, 2327,
+            2972, 3690, 4482, 5344, 6275, 7272, 8332, 9454,
+            10634, 11869, 13157, 14493, 15875, 17300, 18763, 20261,
+            21791, 23347, 24928, 26528, 28143, 29770, 31405, 33043,
+            34680, 36313, 37936, 39547, 41141, 42714, 44262, 45781,
+            47268, 48718, 50129, 51496, 52817, 54087, 55304, 56465,
+            57566, 58606, 59581, 60489, 61327, 62094, 62788, 63407,
+            63950, 64414, 64799, 65104, 65329, 65472, 65533, 65512,
+            65410, 65226, 64961, 64615, 64190, 63686, 63105, 62448,
+            61717, 60913, 60039, 59097, 58090, 57018, 55887, 54697,
+            53453, 52157, 50812, 49423, 47992, 46522, 45019, 43485,
+            41923, 40340, 38737, 37119, 35490, 33855
+        };
+
+        int u, v, w;
+        int sz=126;
+        int sz13=126/3;
+        uint16_t duty[3];
+
+        for(u=0; u<sz; u++)
+        {
+            duty[0]=dutyTable[u];
+            v=u+sz13;
+
+            if(v>=sz)
+                v=v-sz;
+
+            duty[1]=dutyTable[v];
+
+            w=v+sz13;
+
+            if(w>=sz)
+                w=w-sz;
+
+            duty[2]=dutyTable[w];
+        }
+
+        mcHalI_InverterPwmSet(duty);
+#endif
+        mcAppI_1msSyncCounter_gdu32=0u;
         mcAppI_1msTasksHandler();
     }
 }
@@ -351,11 +399,11 @@ void mcAppI_NonISRTasks( void )
  * @param[out]:
  * @return:
  */
-void mcAppI_ApplicationReset( void )
+void mcAppI_ApplicationReset(void)
 {
     /** Voltage measurement  */
-    mcVolI_VoltageCalculationReset( &mcVolI_ModuleData_gds );
+    mcVolI_VoltageCalculationReset(&mcVolI_ModuleData_gds);
 
     /** PMSM motor control */
-    mcFocI_FieldOrientedControlReset( &mcFocI_ModuleData_gds);
+    mcFocI_FieldOrientedControlReset(&mcFocI_ModuleData_gds);
 }

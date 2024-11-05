@@ -16,4 +16,5 @@
 
 8. [Harmony QSpin Motor Control](https://onlinedocs.microchip.com/oxy/GUID-0A4BC4EE-29F5-4736-8125-17139B84E7B5-en-US-1/GUID-42876005-92C2-4CC0-81FC-71368462D294.html).
 
-9. []().
+9. [Motor Control Demonstrations MPLAB Harmony Integrated Software Framework](https://ww1.microchip.com/downloads/en/DeviceDoc/help_apps_motor_control.pdf).
+

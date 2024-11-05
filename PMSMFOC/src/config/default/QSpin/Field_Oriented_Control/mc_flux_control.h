@@ -83,8 +83,8 @@ typedef struct
  */
 __STATIC_INLINE void mcFlxI_ParametersSet( tmcFlx_Parameters_s * const pParameters )
 {
-   pParameters->Kp = (float32_t)8.785867;
-   pParameters->Ki =  (float32_t)2336.666748;
+   pParameters->Kp = (float32_t)4.324;
+   pParameters->Ki =  (float32_t)1150;
    pParameters->dt = (float32_t)(0.00005);
 
 }

@@ -14,26 +14,26 @@
 
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2021 Microchip Technology Inc. and its subsidiaries.
-*
-* Subject to your compliance with these terms, you may use Microchip software
-* and any derivatives exclusively with Microchip products. It is your
-* responsibility to comply with third party license terms applicable to your
-* use of third party software (including open source software) that may
-* accompany Microchip software.
-*
-* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
-* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
-* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
-* PARTICULAR PURPOSE.
-*
-* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
-* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
-* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
-* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
-* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
-* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
-* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+ * Copyright (C) 2021 Microchip Technology Inc. and its subsidiaries.
+ *
+ * Subject to your compliance with these terms, you may use Microchip software
+ * and any derivatives exclusively with Microchip products. It is your
+ * responsibility to comply with third party license terms applicable to your
+ * use of third party software (including open source software) that may
+ * accompany Microchip software.
+ *
+ * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+ * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+ * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ *
+ * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+ * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+ * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+ * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+ * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+ * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+ * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
  *******************************************************************************/
 //DOM-IGNORE-END
 
@@ -43,13 +43,13 @@
 
 /*******************************************************************************
   Header inclusions  
-*******************************************************************************/
+ *******************************************************************************/
 #include "mc_types.h"
 #include "definitions.h"
 
 /*******************************************************************************
  * Interface variables
-*******************************************************************************/
+ *******************************************************************************/
 /** Analog interfaces */
 extern uint16_t mcHalI_IaAdcInput_gdu16;
 extern uint16_t mcHalI_IbAdcInput_gdu16;
@@ -59,11 +59,11 @@ extern int16_t mcPwmI_Duty_gau16[3u];
 
 /*******************************************************************************
  * User defined data structure 
-*******************************************************************************/
+ *******************************************************************************/
 
 /*******************************************************************************
  * Static interface Functions
-*******************************************************************************/
+ *******************************************************************************/
 
 /*! \brief Get PWM period
  *
@@ -75,9 +75,8 @@ extern int16_t mcPwmI_Duty_gau16[3u];
  * @param[out]:
  * @return:
  */
-__STATIC_INLINE uint16_t mcHalI_PwmPeriodGet( void )
-{
-    return (uint16_t)MCPWM_PrimaryPeriodGet();
+__STATIC_INLINE uint16_t mcHalI_PwmPeriodGet(void) {
+    return (uint16_t) MCPWM_PrimaryPeriodGet();
 }
 
 /*! \brief Inverter Duty Set
@@ -90,11 +89,10 @@ __STATIC_INLINE uint16_t mcHalI_PwmPeriodGet( void )
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_InverterPwmSet( const int16_t * const dutyCycle )
-{
-    MCPWM_ChannelPrimaryDutySet(MCPWM_CH_12, (uint16_t)dutyCycle[0] );
-    MCPWM_ChannelPrimaryDutySet(MCPWM_CH_5, (uint16_t)dutyCycle[1] );
-    MCPWM_ChannelPrimaryDutySet(MCPWM_CH_6, (uint16_t)dutyCycle[2] );
+__STATIC_FORCEINLINE void mcHalI_InverterPwmSet(const int16_t * const dutyCycle) {
+    MCPWM_ChannelPrimaryDutySet(MCPWM_CH_12, (uint16_t) dutyCycle[0]);
+    MCPWM_ChannelPrimaryDutySet(MCPWM_CH_5, (uint16_t) dutyCycle[1]);
+    MCPWM_ChannelPrimaryDutySet(MCPWM_CH_6, (uint16_t) dutyCycle[2]);
 }
 
 /*! \brief Get analog signals from ADC peripheral
@@ -107,8 +105,7 @@ __STATIC_FORCEINLINE void mcHalI_InverterPwmSet( const int16_t * const dutyCycle
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_PhaseACurrentGet( void )
-{
+__STATIC_FORCEINLINE void mcHalI_PhaseACurrentGet(void) {
     mcHalI_IaAdcInput_gdu16 = ADCHS_ChannelResultGet(ADCHS_CH0);
 }
 
@@ -122,11 +119,9 @@ __STATIC_FORCEINLINE void mcHalI_PhaseACurrentGet( void )
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_PhaseBCurrentGet( void )
-{
-    mcHalI_IbAdcInput_gdu16 =  ADCHS_ChannelResultGet(ADCHS_CH1);
+__STATIC_FORCEINLINE void mcHalI_PhaseBCurrentGet(void) {
+    mcHalI_IbAdcInput_gdu16 = ADCHS_ChannelResultGet(ADCHS_CH1);
 }
-
 
 /*! \brief Get analog signals from ADC peripheral
  * 
@@ -138,8 +133,7 @@ __STATIC_FORCEINLINE void mcHalI_PhaseBCurrentGet( void )
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_DcLinkVoltageGet( void )
-{
+__STATIC_FORCEINLINE void mcHalI_DcLinkVoltageGet(void) {
     /** Get ADC value for DC bus voltage */
     mcHalI_UbusAdcInput_gdu16 = ADCHS_ChannelResultGet(ADCHS_CH10);
 }
@@ -154,12 +148,11 @@ __STATIC_FORCEINLINE void mcHalI_DcLinkVoltageGet( void )
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_PotentiometerInputGet( void )
-{
+__STATIC_FORCEINLINE void mcHalI_PotentiometerInputGet(void) {
     /** Get ADC value for DC bus voltage */
     mcHalI_Potentiometer_gdu16 = ADCHS_ChannelResultGet(ADCHS_CH24);
+#warning "Define your speed here"
 }
-
 
 /*! \brief Get analog signals from ADC peripheral
  * 
@@ -171,8 +164,7 @@ __STATIC_FORCEINLINE void mcHalI_PotentiometerInputGet( void )
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_AdcInterruptClear( void )
-{
+__STATIC_FORCEINLINE void mcHalI_AdcInterruptClear(void) {
     EVIC_SourceStatusClear(INT_SOURCE_ADC_DATA0);
 }
 
@@ -186,8 +178,7 @@ __STATIC_FORCEINLINE void mcHalI_AdcInterruptClear( void )
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_AdcInterruptDisable( void )
-{
+__STATIC_FORCEINLINE void mcHalI_AdcInterruptDisable(void) {
     EVIC_SourceDisable(INT_SOURCE_ADC_DATA0);
 }
 
@@ -201,15 +192,14 @@ __STATIC_FORCEINLINE void mcHalI_AdcInterruptDisable( void )
  * @param[out]:
  * @return:
  */
-__STATIC_FORCEINLINE void mcHalI_AdcInterruptEnable( void )
-{
+__STATIC_FORCEINLINE void mcHalI_AdcInterruptEnable(void) {
     EVIC_SourceEnable(INT_SOURCE_ADC_DATA0);
 }
 
 
 /*******************************************************************************
  * Interface Functions
-*******************************************************************************/
+ *******************************************************************************/
 
 /*! \brief Enable PWM inverter
  * 
@@ -221,7 +211,7 @@ __STATIC_FORCEINLINE void mcHalI_AdcInterruptEnable( void )
  * @param[out]:
  * @return:
  */
-void mcHalI_InverterPwmEnable( void );
+void mcHalI_InverterPwmEnable(void);
 
 /*! \brief Disable PWM inverter
  * 
@@ -233,7 +223,7 @@ void mcHalI_InverterPwmEnable( void );
  * @param[out]:
  * @return:
  */
-void mcHalI_InverterPwmDisable( void );
+void mcHalI_InverterPwmDisable(void);
 
 
 
@@ -248,7 +238,7 @@ void mcHalI_InverterPwmDisable( void );
  * @param[out]:
  * @return:
  */
-void mcHalI_AdcEnable( void );
+void mcHalI_AdcEnable(void);
 
 
 /*! \brief PWM timer Start
@@ -261,7 +251,7 @@ void mcHalI_AdcEnable( void );
  * @param[out]:
  * @return:
  */
-void mcHalI_PwmTimerStart( void );
+void mcHalI_PwmTimerStart(void);
 
 /*! \brief ADC callback function
  * 
@@ -273,7 +263,7 @@ void mcHalI_PwmTimerStart( void );
  * @param[out]:
  * @return:
  */
-void mcHalI_AdcCallBackRegister( ADCHS_CALLBACK callback, uintptr_t context );
+void mcHalI_AdcCallBackRegister(ADCHS_CALLBACK callback, uintptr_t context);
 
 /*! \brief PWM fault callback function
  * 
@@ -285,20 +275,20 @@ void mcHalI_AdcCallBackRegister( ADCHS_CALLBACK callback, uintptr_t context );
  * @param[out]:
  * @return:
  */
-void mcHalI_PwmCallbackRegister( MCPWM_CH_CALLBACK callback, uintptr_t context );
+void mcHalI_PwmCallbackRegister(MCPWM_CH_CALLBACK callback, uintptr_t context);
 
 
- /*! \brief PWM interrupt enable
-  *
-  * Details.
-  * PWM interrupt enable
-  *
-  * @param[in]:
-  * @param[in/out]:
-  * @param[out]:
-  * @return:
-  */
- void mcHalI_PwmInterruptEnable( void );
+/*! \brief PWM interrupt enable
+ *
+ * Details.
+ * PWM interrupt enable
+ *
+ * @param[in]:
+ * @param[in/out]:
+ * @param[out]:
+ * @return:
+ */
+void mcHalI_PwmInterruptEnable(void);
 
 
 

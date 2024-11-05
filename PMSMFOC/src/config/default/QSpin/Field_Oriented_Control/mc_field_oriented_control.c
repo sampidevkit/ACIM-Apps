@@ -494,12 +494,12 @@ void mcFocI_FieldOrientedControlSlow( const tmcFocI_ModuleData_s * const pParame
         tk=0;
         IND_RUN_Toggle();
         
-        if(DEV_MODE_DISABLE_Get()==0)
-        {
-            IND_ERR_N_Clear();
-            DEV_MODE_DISABLE_Set();
-            printf("\nDisable DEVMODE");
-        }
+//        if(DEV_MODE_DISABLE_Get()==0)
+//        {
+//            IND_ERR_N_Clear();
+//            DEV_MODE_DISABLE_Set();
+//            printf("\nDisable DEVMODE");
+//        }
         
         printf("\nIa=%.3f", pParameters->dInput.iABC.a);
         printf("\nIb=%.3f", pParameters->dInput.iABC.b);
