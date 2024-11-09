@@ -66,8 +66,8 @@ void ADCHS_Initialize(void)
 
     ADC7CFG = DEVADC7;
 
-    ADCCON1 = 0x600000U;
-    ADCCON2 = 0x20001U;
+    ADCCON1 = 0x7e0000U;
+    ADCCON2 = 0x10001U;
     ADCCON3 = 0x1000000U;
 
     ADCTRGMODE = 0x0U;
@@ -88,7 +88,7 @@ void ADCHS_Initialize(void)
     ADCIMCON4 = 0x0U; 
 
     /* Input scan */
-    ADCCSS1 = 0x0U;
+    ADCCSS1 = 0x400U;
     ADCCSS2 = 0x0U; 
 
 

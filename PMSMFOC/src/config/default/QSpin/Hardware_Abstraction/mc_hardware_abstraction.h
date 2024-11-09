@@ -150,7 +150,7 @@ __STATIC_FORCEINLINE void mcHalI_DcLinkVoltageGet(void) {
  */
 __STATIC_FORCEINLINE void mcHalI_PotentiometerInputGet(void) {
     /** Get ADC value for DC bus voltage */
-    mcHalI_Potentiometer_gdu16 = ADCHS_ChannelResultGet(ADCHS_CH24);
+    mcHalI_Potentiometer_gdu16 = 512;//ADCHS_ChannelResultGet(ADCHS_CH24);
 #warning "Define your speed here"
 }
 

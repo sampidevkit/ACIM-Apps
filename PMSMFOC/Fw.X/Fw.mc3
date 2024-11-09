@@ -1877,7 +1877,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="adchs" name="ADCCON1__STRGSRC"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCCON1__STRGSRC&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;30&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
 </value>
@@ -1904,7 +1911,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="adchs" name="ADCCON2__SAMC"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCCON2__SAMC&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
 </value>
@@ -1958,7 +1972,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="adchs" name="ADCCSS1__CSS10"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCCSS1__CSS10&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
 </value>
@@ -2057,7 +2078,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="adchs" name="ADCCSS1__CSS24"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCCSS1__CSS24&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
 </value>
@@ -2120,7 +2148,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="adchs" name="ADCCSS1__CSS6"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCCSS1__CSS6&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
 </value>
@@ -2883,7 +2918,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCHS_ADCCON1&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adchs&quot; value=&quot;6291456&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adchs&quot; value=&quot;8257536&quot;/&gt;
     &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
@@ -2894,7 +2929,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCHS_ADCCON2&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adchs&quot; value=&quot;131073&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adchs&quot; value=&quot;65537&quot;/&gt;
     &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
@@ -2913,7 +2948,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="adchs" name="ADCHS_ADCCSS1"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adchs&gt;
   &lt;adchs dnOrder=&quot;0&quot; id=&quot;ADCHS_ADCCSS1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adchs&quot; value=&quot;1024&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
 </value>
@@ -3246,7 +3283,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adchs&quot; value=&quot;1764.7059&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adchs&quot; value=&quot;1875.0001&quot;/&gt;
     &lt;/Values&gt;
   &lt;/adchs&gt;
 &lt;/adchs&gt;
@@ -19611,7 +19648,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\adchs\plib_adchs.c</file>
-         <hash>fd3181238c83b70f8027e29ff262f0f1ee60cbfd8a7464a2ba36b0cf5c3cb611</hash>
+         <hash>323f2ea5ea4056acf21ab40060e21b1ce5008cf2eca351a80409639ac24e9550</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\adchs\plib_adchs.h</file>
