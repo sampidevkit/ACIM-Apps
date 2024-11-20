@@ -9,10 +9,8 @@
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>../docs</sourceRootElem>
-                <sourceRootElem>../src</sourceRootElem>
-                <sourceRootElem>../../../../Docs</sourceRootElem>
-                <sourceRootElem>../../Docs</sourceRootElem>
+                <sourceRootElem>../../..</sourceRootElem>
+                <sourceRootElem>../../../FwLib</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
