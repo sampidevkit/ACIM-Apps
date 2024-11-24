@@ -8,7 +8,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="Board" projectFiles="true">
+      <logicalFolder name="f1" displayName="Boards" projectFiles="true">
         <logicalFolder name="default" displayName="default" projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="adchs" displayName="adchs" projectFiles="true">
@@ -43,6 +43,9 @@
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart2.h</itemPath>
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart_common.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/wdt/plib_wdt.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <itemPath>../FwLib/Boards/MK0/src/config/default/definitions.h</itemPath>
           <itemPath>../FwLib/Boards/MK0/src/config/default/device.h</itemPath>
@@ -67,10 +70,10 @@
         <logicalFolder name="Maths" displayName="Maths" projectFiles="true">
           <itemPath>../FwLib/LabHAU/Maths/FastTrigonometric.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="Motors" displayName="Motors" projectFiles="true">
-          <itemPath>../FwLib/LabHAU/Motors/motors.h</itemPath>
-        </logicalFolder>
         <itemPath>labhau/labhau_cfg.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Motors" projectFiles="true">
+        <itemPath>../FwLib/Motors/motors.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -90,7 +93,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="Board" projectFiles="true">
+      <logicalFolder name="f1" displayName="Boards" projectFiles="true">
         <logicalFolder name="default" displayName="default" projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="adchs" displayName="adchs" projectFiles="true">
@@ -121,6 +124,9 @@
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart1.c</itemPath>
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart2.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/wdt/plib_wdt.c</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
             <itemPath>../FwLib/Boards/MK0/src/config/default/stdio/xc32_monitor.c</itemPath>
@@ -146,13 +152,14 @@
         <logicalFolder name="Maths" displayName="Maths" projectFiles="true">
           <itemPath>../FwLib/LabHAU/Maths/FastTrigonometric.c</itemPath>
         </logicalFolder>
-        <logicalFolder name="Motors" displayName="Motors" projectFiles="true">
-          <itemPath>../FwLib/LabHAU/Motors/motors.c</itemPath>
-        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Motors" projectFiles="true">
+        <itemPath>../FwLib/Motors/motors.c</itemPath>
       </logicalFolder>
       <itemPath>../FwLib/Boards/MK0/src/main.c</itemPath>
       <itemPath>labhau/myMC.c</itemPath>
       <itemPath>labhau/myPFC.c</itemPath>
+      <itemPath>labhau/myMotors.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -327,7 +334,7 @@
       </C32CPP>
       <C32Global>
         <property key="common-include-directories"
-                  value="labhau;..\FwLib\Boards\MK0\src;..\FwLib\Boards\MK0\src\config\default;..\FwLib\LabHAU"/>
+                  value="labhau;..\FwLib\Boards\MK0\src;..\FwLib\Boards\MK0\src\config\default;..\FwLib\LabHAU;..\FwLib\Motors"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="true"/>
         <property key="mdtcm" value=""/>

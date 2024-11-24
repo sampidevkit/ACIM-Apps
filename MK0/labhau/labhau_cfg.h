@@ -12,6 +12,9 @@
 /* ************************************************** PFC ALGORITHM SELECTION */
 //#define USE_MY_PFC_ALGORITHM
 
+/* ************************************************* MOTOR CONTROL PARAMETERS */
+#define USE_MY_MOTOR_PARAMETERS
+
 /* **************************************** MOTOR CONTROL ALGORITHM SELECTION */
 #define USE_MY_MOTOR_CONTROL_ALGORITHM
 
