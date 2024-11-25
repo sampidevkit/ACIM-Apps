@@ -4,6 +4,7 @@
     <logicalFolder name="f1" displayName="Docs" projectFiles="true">
       <itemPath>../FwLib/Boards/MK0/docs/HW.ACIM-INV.pdf</itemPath>
       <itemPath>../FwLib/Boards/MK0/docs/HW.ACIM-PSU.pdf</itemPath>
+      <itemPath>../FwLib/Boards/MK0/docs/PIC32MK-GPK-MCM-with-CAN-FD-Family-DataSheet-DS60001519E.pdf</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -21,6 +22,9 @@
             <logicalFolder name="coretimer" displayName="coretimer" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/coretimer/plib_coretimer.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="eeprom" displayName="eeprom" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/eeprom/plib_eeprom.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="evic" displayName="evic" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/evic/plib_evic.h</itemPath>
             </logicalFolder>
@@ -30,6 +34,9 @@
             <logicalFolder name="mcpwm" displayName="mcpwm" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm.h</itemPath>
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm_common.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/nvm/plib_nvm.h</itemPath>
             </logicalFolder>
             <logicalFolder name="qei" displayName="qei" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei1.h</itemPath>
@@ -71,6 +78,7 @@
           <itemPath>../FwLib/LabHAU/Maths/FastTrigonometric.h</itemPath>
         </logicalFolder>
         <itemPath>labhau/labhau_cfg.h</itemPath>
+        <itemPath>../FwLib/LabHAU/labhau.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Motors" projectFiles="true">
         <itemPath>../FwLib/Motors/motors.h</itemPath>
@@ -105,6 +113,9 @@
             <logicalFolder name="coretimer" displayName="coretimer" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/coretimer/plib_coretimer.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="eeprom" displayName="eeprom" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/eeprom/plib_eeprom.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="evic" displayName="evic" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/evic/plib_evic.c</itemPath>
             </logicalFolder>
@@ -113,6 +124,9 @@
             </logicalFolder>
             <logicalFolder name="mcpwm" displayName="mcpwm" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/nvm/plib_nvm.c</itemPath>
             </logicalFolder>
             <logicalFolder name="qei" displayName="qei" projectFiles="true">
               <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei1.c</itemPath>
@@ -152,6 +166,7 @@
         <logicalFolder name="Maths" displayName="Maths" projectFiles="true">
           <itemPath>../FwLib/LabHAU/Maths/FastTrigonometric.c</itemPath>
         </logicalFolder>
+        <itemPath>../FwLib/LabHAU/labhau.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Motors" projectFiles="true">
         <itemPath>../FwLib/Motors/motors.c</itemPath>

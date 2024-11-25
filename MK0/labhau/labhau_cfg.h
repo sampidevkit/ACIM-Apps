@@ -12,10 +12,14 @@
 /* ************************************************** PFC ALGORITHM SELECTION */
 //#define USE_MY_PFC_ALGORITHM
 
-/* ************************************************* MOTOR CONTROL PARAMETERS */
+/* ********************************************************* MOTOR PARAMETERS */
 #define USE_MY_MOTOR_PARAMETERS
 
 /* **************************************** MOTOR CONTROL ALGORITHM SELECTION */
 #define USE_MY_MOTOR_CONTROL_ALGORITHM
+#define INV_IIR_FILTER_HARDNESS         4
+
+/* ****************************************************************** DV PLOT */
+#define DV_BUFFER_SIZE 14
 
 #endif
