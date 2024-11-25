@@ -10,60 +10,65 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Boards" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
-          <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="adchs" displayName="adchs" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/adchs/plib_adchs.h</itemPath>
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/adchs/plib_adchs_common.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="clk" displayName="clk" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/clk/plib_clk.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="coretimer" displayName="coretimer" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/coretimer/plib_coretimer.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="eeprom" displayName="eeprom" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/eeprom/plib_eeprom.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="evic" displayName="evic" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/evic/plib_evic.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/gpio/plib_gpio.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="mcpwm" displayName="mcpwm" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm.h</itemPath>
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm_common.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/nvm/plib_nvm.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="qei" displayName="qei" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei1.h</itemPath>
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei_common.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="rcon" displayName="rcon" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/rcon/plib_rcon.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="uart" displayName="uart" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart1.h</itemPath>
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart2.h</itemPath>
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart_common.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/wdt/plib_wdt.h</itemPath>
+        <logicalFolder name="MK0" displayName="MK0" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <logicalFolder name="config" displayName="config" projectFiles="true">
+              <logicalFolder name="default" displayName="default" projectFiles="true">
+                <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+                  <logicalFolder name="adchs" displayName="adchs" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/adchs/plib_adchs.h</itemPath>
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/adchs/plib_adchs_common.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="clk" displayName="clk" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/clk/plib_clk.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="coretimer" displayName="coretimer" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/coretimer/plib_coretimer.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="eeprom" displayName="eeprom" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/eeprom/plib_eeprom.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="evic" displayName="evic" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/evic/plib_evic.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/gpio/plib_gpio.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="mcpwm" displayName="mcpwm" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm.h</itemPath>
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm_common.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/nvm/plib_nvm.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="qei" displayName="qei" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei1.h</itemPath>
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei_common.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="rcon" displayName="rcon" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/rcon/plib_rcon.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="uart" displayName="uart" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart1.h</itemPath>
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart2.h</itemPath>
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart_common.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/wdt/plib_wdt.h</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+                <itemPath>../FwLib/Boards/MK0/src/config/default/definitions.h</itemPath>
+                <itemPath>../FwLib/Boards/MK0/src/config/default/device.h</itemPath>
+                <itemPath>../FwLib/Boards/MK0/src/config/default/interrupts.h</itemPath>
+                <itemPath>../FwLib/Boards/MK0/src/config/default/toolchain_specifics.h</itemPath>
+              </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <itemPath>../FwLib/Boards/MK0/src/config/default/definitions.h</itemPath>
-          <itemPath>../FwLib/Boards/MK0/src/config/default/device.h</itemPath>
-          <itemPath>../FwLib/Boards/MK0/src/config/default/interrupts.h</itemPath>
-          <itemPath>../FwLib/Boards/MK0/src/config/default/toolchain_specifics.h</itemPath>
         </logicalFolder>
-        <itemPath>../FwLib/Boards/MK0/src/boards.h</itemPath>
+        <itemPath>../FwLib/Boards/boards.h</itemPath>
       </logicalFolder>
       <logicalFolder name="LabHAU" displayName="LabHAU" projectFiles="true">
         <logicalFolder name="f1" displayName="Algorithms" projectFiles="true">
-          <itemPath>../FwLib/LabHAU/Algorithms/PFC.h</itemPath>
           <itemPath>../FwLib/LabHAU/Algorithms/MC.h</itemPath>
         </logicalFolder>
         <logicalFolder name="Common" displayName="Common" projectFiles="true">
@@ -92,9 +97,13 @@
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
-      <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
-          <itemPath>../FwLib/Boards/MK0/src/config/default/p32MK1024MCM064.ld</itemPath>
+      <logicalFolder name="MK0" displayName="MK0" projectFiles="true">
+        <logicalFolder name="src" displayName="src" projectFiles="true">
+          <logicalFolder name="config" displayName="config" projectFiles="true">
+            <logicalFolder name="default" displayName="default" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK0/src/config/default/p32MK1024MCM064.ld</itemPath>
+            </logicalFolder>
+          </logicalFolder>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -102,58 +111,63 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Boards" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
-          <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="adchs" displayName="adchs" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/adchs/plib_adchs.c</itemPath>
+        <logicalFolder name="MK0" displayName="MK0" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <logicalFolder name="config" displayName="config" projectFiles="true">
+              <logicalFolder name="default" displayName="default" projectFiles="true">
+                <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+                  <logicalFolder name="adchs" displayName="adchs" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/adchs/plib_adchs.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="clk" displayName="clk" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/clk/plib_clk.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="coretimer" displayName="coretimer" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/coretimer/plib_coretimer.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="eeprom" displayName="eeprom" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/eeprom/plib_eeprom.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="evic" displayName="evic" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/evic/plib_evic.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/gpio/plib_gpio.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="mcpwm" displayName="mcpwm" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/nvm/plib_nvm.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="qei" displayName="qei" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei1.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="rcon" displayName="rcon" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/rcon/plib_rcon.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="uart" displayName="uart" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart1.c</itemPath>
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart2.c</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
+                    <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/wdt/plib_wdt.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+                <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
+                  <itemPath>../FwLib/Boards/MK0/src/config/default/stdio/xc32_monitor.c</itemPath>
+                </logicalFolder>
+                <itemPath>../FwLib/Boards/MK0/src/config/default/exceptions.c</itemPath>
+                <itemPath>../FwLib/Boards/MK0/src/config/default/initialization.c</itemPath>
+                <itemPath>../FwLib/Boards/MK0/src/config/default/interrupts.c</itemPath>
+              </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="clk" displayName="clk" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/clk/plib_clk.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="coretimer" displayName="coretimer" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/coretimer/plib_coretimer.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="eeprom" displayName="eeprom" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/eeprom/plib_eeprom.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="evic" displayName="evic" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/evic/plib_evic.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/gpio/plib_gpio.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="mcpwm" displayName="mcpwm" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/mcpwm/plib_mcpwm.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/nvm/plib_nvm.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="qei" displayName="qei" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/qei/plib_qei1.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="rcon" displayName="rcon" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/rcon/plib_rcon.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="uart" displayName="uart" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart1.c</itemPath>
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/uart/plib_uart2.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
-              <itemPath>../FwLib/Boards/MK0/src/config/default/peripheral/wdt/plib_wdt.c</itemPath>
-            </logicalFolder>
+            <itemPath>../FwLib/Boards/MK0/src/boards.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
-            <itemPath>../FwLib/Boards/MK0/src/config/default/stdio/xc32_monitor.c</itemPath>
-          </logicalFolder>
-          <itemPath>../FwLib/Boards/MK0/src/config/default/exceptions.c</itemPath>
-          <itemPath>../FwLib/Boards/MK0/src/config/default/initialization.c</itemPath>
-          <itemPath>../FwLib/Boards/MK0/src/config/default/interrupts.c</itemPath>
         </logicalFolder>
-        <itemPath>../FwLib/Boards/MK0/src/boards.c</itemPath>
       </logicalFolder>
       <logicalFolder name="LabHAU" displayName="LabHAU" projectFiles="true">
         <logicalFolder name="f1" displayName="Algorithms" projectFiles="true">
-          <itemPath>../FwLib/LabHAU/Algorithms/PFC.c</itemPath>
           <itemPath>../FwLib/LabHAU/Algorithms/MC.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Common" displayName="Common" projectFiles="true">
@@ -171,9 +185,7 @@
       <logicalFolder name="f2" displayName="Motors" projectFiles="true">
         <itemPath>../FwLib/Motors/motors.c</itemPath>
       </logicalFolder>
-      <itemPath>../FwLib/Boards/MK0/src/main.c</itemPath>
       <itemPath>labhau/myMC.c</itemPath>
-      <itemPath>labhau/myPFC.c</itemPath>
       <itemPath>labhau/myMotors.c</itemPath>
     </logicalFolder>
   </logicalFolder>
@@ -349,7 +361,7 @@
       </C32CPP>
       <C32Global>
         <property key="common-include-directories"
-                  value="labhau;..\FwLib\Boards\MK0\src;..\FwLib\Boards\MK0\src\config\default;..\FwLib\LabHAU;..\FwLib\Motors"/>
+                  value="labhau;..\FwLib\Boards;..\FwLib\Motors;..\FwLib\LabHAU;..\FwLib\Boards\MK0\src;..\FwLib\Boards\MK0\src\config\default"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="true"/>
         <property key="mdtcm" value=""/>

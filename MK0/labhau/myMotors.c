@@ -1,14 +1,10 @@
 #include "motors.h"
 
-#ifdef USE_MY_MOTOR_PARAMETERS
-const motor_fpara_t MotorFParameters={
+const motor_fpara_t myMotorFParameters={
     
 };
 
-motor_ipara_t MotorIParameters;
-
-void Motor_Init(void)
+void Motor_myInit(void)
 {
     printf("\r\n%s done", __FUNCTION__);
 }
-#endif
