@@ -27,7 +27,7 @@ void MC_myProcess(void)
      McDutyW: calculated PWM duty for phase W
      
      Utils: 
-     McDutyMax: Maximum PWM duty */
+     McDutyMax: Maximum PWM duty     */
 
     //DV_Plot(McIu, McIv, McIw);
     //DV_Plot(McUu, McUv, McUw);
