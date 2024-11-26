@@ -17,7 +17,7 @@
 
 /* **************************************** MOTOR CONTROL ALGORITHM SELECTION */
 //#define USE_MY_MOTOR_CONTROL_ALGORITHM
-#define INV_IIR_FILTER_HARDNESS         4
+#define INV_IIR_FILTER_HARDNESS 4
 #define USE_MC_FREE_RUN
 
 /* ****************************************************************** DV PLOT */
