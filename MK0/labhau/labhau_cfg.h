@@ -16,8 +16,9 @@
 #define USE_MY_MOTOR_PARAMETERS
 
 /* **************************************** MOTOR CONTROL ALGORITHM SELECTION */
-#define USE_MY_MOTOR_CONTROL_ALGORITHM
+//#define USE_MY_MOTOR_CONTROL_ALGORITHM
 #define INV_IIR_FILTER_HARDNESS         4
+#define USE_MC_FREE_RUN
 
 /* ****************************************************************** DV PLOT */
 #define DV_BUFFER_SIZE 14
