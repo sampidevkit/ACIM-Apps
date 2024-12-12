@@ -21,6 +21,6 @@
 #define USE_MC_FREE_RUN
 
 /* ****************************************************************** DV PLOT */
-#define DV_BUFFER_SIZE 14
+#define DV_BUFFER_SIZE 64
 
 #endif
