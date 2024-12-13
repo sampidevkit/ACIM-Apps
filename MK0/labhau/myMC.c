@@ -3,10 +3,11 @@
 
 void MC_myInit(void)
 {
+    MC_SinePWM_Init(50);
     printf("\r\n%s done", __FUNCTION__);
 }
 
-void MC_myProcess(void)
+void MC_myProcess(void *pArg)
 {
     /* Inputs:
      McIs: present current of power source
@@ -31,5 +32,5 @@ void MC_myProcess(void)
 
     //DV_Plot(McIu, McIv, McIw);
     //DV_Plot(McUu, McUv, McUw);
-    DV_Plot(McUs, McIs, McSpeed);
+    //DV_Plot(McUs, McIs, McSpeed);
 }
