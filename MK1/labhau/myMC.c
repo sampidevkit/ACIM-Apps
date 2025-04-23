@@ -2,9 +2,14 @@
 #include "Debugger/DataVisualizer.h"
 #include "Algorithms/SinePWM.h"
 
+static void MC_myPlot(void* arg)
+{
+    DV_Plot(McDutyU, McDutyV, McDutyW);
+}
+
 void MC_myInit(void)
 {
-    SinePWM_Init(50);
+    SinePWM_Init(50, MC_myPlot);
     printf("\r\n%s done", __FUNCTION__);
 }
 
@@ -34,5 +39,5 @@ void MC_myProcess(void)
     //DV_Plot(McIu, McIv, McIw);
     //DV_Plot(McUu, McUv, McUw);
     //DV_Plot(McUs, McIs, McSpeed);
-    DV_Plot(McIs, McIu, McIv);
+    //DV_Plot(McIs, McIu, McIv);
 }
