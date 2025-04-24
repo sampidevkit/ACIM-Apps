@@ -4,7 +4,8 @@
 
 static void MC_myPlot(void* arg)
 {
-    DV_Plot(McDutyU, McDutyV, McDutyW);
+    //DV_Plot(McDutyU, McDutyV, McDutyW);
+    DV_Plot(McIu, McIv, McIw);
 }
 
 void MC_myInit(void)
