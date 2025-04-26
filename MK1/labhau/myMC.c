@@ -5,7 +5,8 @@
 static void MC_myPlot(void* arg)
 {
     //DV_Plot(McDutyU, McDutyV, McDutyW);
-    DV_Plot(McIu, McIv, McIw);
+    //DV_PlotData5(McUs, McIs, McIu, McIv, McIw);
+    DV_PlotData5(McUs, McIs, McDutyU, McDutyV, McDutyW);
 }
 
 void MC_myInit(void)
