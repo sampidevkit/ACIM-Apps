@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=MK1
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=test
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default 
+ALLCONFS=test sine_pwm svpwm 
 
 
 # build
@@ -45,13 +45,17 @@ ALLCONFS=default
 
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=test clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=sine_pwm clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=svpwm clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=test build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=sine_pwm build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=svpwm build
 
 
 
