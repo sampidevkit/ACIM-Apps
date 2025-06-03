@@ -4,6 +4,47 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Cfg" projectFiles="true">
+        <logicalFolder name="MK1" displayName="MK1" projectFiles="true">
+          <logicalFolder name="labhau" displayName="labhau" projectFiles="true">
+            <itemPath>../MK1/labhau/labhau_cfg.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="f1" displayName="WinHost" projectFiles="true">
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="FwLib" displayName="FwLib" projectFiles="true">
+        <logicalFolder name="Boards" displayName="Boards" projectFiles="true">
+          <itemPath>../FwLib/Boards/boards.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="LabHAU" displayName="LabHAU" projectFiles="true">
+          <logicalFolder name="Algorithms" displayName="Algorithms" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Algorithms/MC.h</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/PFC.h</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/SPWM.h</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/SVPWM.h</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/SinePWM.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="Common" displayName="Common" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Common/LibDef.h</itemPath>
+            <itemPath>../FwLib/LabHAU/Common/Tick.h</itemPath>
+            <itemPath>../FwLib/LabHAU/Common/Utils.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="Debugger" displayName="Debugger" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Debugger/DataVisualizer.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="Drivers" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Drivers/FTDI_SerialPort.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="Maths" displayName="Maths" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Maths/FastTrigonometric.h</itemPath>
+          </logicalFolder>
+          <itemPath>../FwLib/LabHAU/labhau.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Motors" displayName="Motors" projectFiles="true">
+          <itemPath>../FwLib/Motors/motors.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,7 +53,52 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>main.c</itemPath>
+      <logicalFolder name="f1" displayName="Cfg" projectFiles="true">
+        <logicalFolder name="MK1" displayName="MK1" projectFiles="true">
+          <logicalFolder name="labhau" displayName="labhau" projectFiles="true">
+            <itemPath>../MK1/labhau/myMC.c</itemPath>
+            <itemPath>../MK1/labhau/myMotors.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="f1" displayName="WinHost" projectFiles="true">
+          <itemPath>cfg/FTDI_SerialPort_Cfg.c</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="FwLib" displayName="FwLib" projectFiles="true">
+        <logicalFolder name="Boards" displayName="Boards" projectFiles="true">
+          <logicalFolder name="MK1" displayName="MK1" projectFiles="true">
+            <logicalFolder name="src" displayName="src" projectFiles="true">
+              <itemPath>../FwLib/Boards/MK1/src/boards_winhost.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="LabHAU" displayName="LabHAU" projectFiles="true">
+          <logicalFolder name="Algorithms" displayName="Algorithms" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Algorithms/MC.c</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/PFC.c</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/SPWM.c</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/SVPWM.c</itemPath>
+            <itemPath>../FwLib/LabHAU/Algorithms/SinePWM.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="Common" displayName="Common" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Common/Tick.c</itemPath>
+            <itemPath>../FwLib/LabHAU/Common/Utils.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="Debugger" displayName="Debugger" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Debugger/DataVisualizer.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="Drivers" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Drivers/FTDI_SerialPort.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="Maths" displayName="Maths" projectFiles="true">
+            <itemPath>../FwLib/LabHAU/Maths/FastTrigonometric.c</itemPath>
+          </logicalFolder>
+          <itemPath>../FwLib/LabHAU/labhau.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Motors" displayName="Motors" projectFiles="true">
+          <itemPath>../FwLib/Motors/motors.c</itemPath>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -26,6 +112,10 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../MK1</Elem>
+    <Elem>../FwLib</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -37,6 +127,12 @@
       <compileType>
         <cTool>
           <standard>3</standard>
+          <incDir>
+            <pElem>cfg</pElem>
+            <pElem>../MK1/labhau</pElem>
+            <pElem>../FwLib/LabHAU</pElem>
+            <pElem>../FwLib/Motors</pElem>
+          </incDir>
         </cTool>
         <asmTool>
           <commandlineTool>as</commandlineTool>
@@ -45,7 +141,94 @@
           <commandLine>-llibftdi1</commandLine>
         </linkerTool>
       </compileType>
-      <item path="main.c" ex="false" tool="0" flavor2="0">
+      <item path="../FwLib/Boards/MK1/src/boards_winhost.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/Boards/boards.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/MC.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/MC.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/PFC.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/PFC.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/SPWM.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/SPWM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/SVPWM.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/SVPWM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/SinePWM.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Algorithms/SinePWM.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Common/LibDef.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Common/Tick.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Common/Tick.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Common/Utils.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Common/Utils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Debugger/DataVisualizer.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Debugger/DataVisualizer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Drivers/FTDI_SerialPort.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Drivers/FTDI_SerialPort.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Maths/FastTrigonometric.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/Maths/FastTrigonometric.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/labhau.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/LabHAU/labhau.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../FwLib/Motors/motors.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../FwLib/Motors/motors.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MK1/labhau/labhau_cfg.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MK1/labhau/myMC.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../MK1/labhau/myMotors.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cfg/FTDI_SerialPort_Cfg.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>
