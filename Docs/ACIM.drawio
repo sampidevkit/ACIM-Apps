@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1" pages="6">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9" pages="7">
   <diagram name="HW Diagram" id="-PBqbbDnDDScj31LGtBN">
     <mxGraphModel dx="1426" dy="857" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -519,6 +519,122 @@
         </mxCell>
         <mxCell id="UqxMPIbskAaEdOPIMjFz-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" parent="1" vertex="1">
           <mxGeometry x="470" y="173" width="20" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="_7fxWfCY8Gw7gWnRdn42" name="Page-7">
+    <mxGraphModel dx="983" dy="591" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-1" value="&lt;b&gt;BO NGUỒN VÀ BẢO VỆ&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-3" value="Đầu nối nguồn" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="130" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-4" value="Lọc nguồn AC" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="150" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-5" value="Biến áp 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="290" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-6" value="Biến áp 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="290" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-7" value="Chỉnh lưu" style="rounded=0;whiteSpace=wrap;html=1;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="150" width="40" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-8" value="Relay" style="rounded=0;whiteSpace=wrap;html=1;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="210" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-11" value="Tụ nguồn" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="380" y="140" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-12" value="Đầu nối ngõ ra" style="rounded=0;whiteSpace=wrap;html=1;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="450" y="130" width="20" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-13" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="420" as="sourcePoint" />
+            <mxPoint x="480" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-15" value="98mm" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="jLRpvBthhk9lc1fjOqiy-13">
+          <mxGeometry x="-0.0165" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-14" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="420" as="sourcePoint" />
+            <mxPoint x="180" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-16" value="98mm" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="jLRpvBthhk9lc1fjOqiy-14">
+          <mxGeometry x="-0.0163" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-17" value="&lt;b&gt;BO CÔNG SUẤT VÀ ĐO NĂNG LƯỢNG&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="520" y="120" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-18" value="Đầu nối động cơ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="130" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-19" value="Đo dòng pha" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="150" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-20" value="Module&lt;div&gt;vi điều khiển&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="620" y="300" width="102.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-21" value="IPM" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-24" value="Tụ nguồn" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="585" y="145" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-25" value="Đầu nối ngõ vào" style="rounded=0;whiteSpace=wrap;html=1;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="130" width="20" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-26" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="420" as="sourcePoint" />
+            <mxPoint x="800" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-27" value="98mm" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="jLRpvBthhk9lc1fjOqiy-26">
+          <mxGeometry x="-0.0165" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-28" value="DC-DC1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="290" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-29" value="DC-DC2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="330" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-30" value="Đo dòng nguồn" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-31" value="Đo áp nguồn" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-32" value="Cách ly tín hiệu PWM" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="260" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-33" value="Cách ly tín hiệu khác" style="rounded=0;whiteSpace=wrap;html=1;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="760" y="260" width="30" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-34" value="Đầu nối mạch nạp và gỡ lỗi" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="360" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-35" value="Đầu nối encoder" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="360" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jLRpvBthhk9lc1fjOqiy-36" value="Nguồn nội bộ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="290" width="50" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
