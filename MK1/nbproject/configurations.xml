@@ -2,10 +2,10 @@
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="f1" displayName="Docs" projectFiles="true">
-      <itemPath>../FwLib/Boards/MK1/docs/HW.ACIM-INV.pdf</itemPath>
       <itemPath>../FwLib/Boards/MK1/docs/HW.ACIM-PSU.pdf</itemPath>
       <itemPath>../FwLib/Boards/MK1/docs/PIC32MK-GPK-MCM-with-CAN-FD-Family-DataSheet-DS60001519E.pdf</itemPath>
-      <itemPath>../FwLib/Boards/MK1/docs/HW.ACIM-MCU-32MK.pdf</itemPath>
+      <itemPath>../FwLib/Boards/MK1/docs/HW.ACIM-MCU-ADAP.pdf</itemPath>
+      <itemPath>../FwLib/Boards/MK1/docs/HW.ACIM-INV.pdf</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
